@@ -1,26 +1,23 @@
-def part_one(lines):
+def part_one(numbers):
     increasing = 0
-    previous = 0
-    for line in lines:
-        current = int(line)
-        if current > previous:
-            increasing += 1
-        previous = current
 
-    increasing -= 1
+    for i in range(1, len(numbers)):
+        if numbers[i] > numbers[i - 1]:
+            increasing += 1
+
     return increasing
 
 
-def part_two(lines):
+def part_two(numbers):
     previous_window = 0
     window = 0
     increasing = 0
-    for i, line in enumerate(lines):
+    for i, num in enumerate(numbers):
         if i > 2:
             previous_window = window
-        window += int(line)
+        window += num
         if i > 2:
-            window -= int(lines[i - 3])
+            window -= numbers[i - 3]
             if window > previous_window:
                 increasing += 1
 
@@ -28,7 +25,7 @@ def part_two(lines):
 
 
 with open('input', 'r') as infile:
-    lines = infile.readlines()
+    numbers = list(map(lambda l: int(l.strip('\n')), infile.readlines()))
 
-print(part_one(lines))
-print(part_two(lines))
+print(part_one(numbers))
+print(part_two(numbers))

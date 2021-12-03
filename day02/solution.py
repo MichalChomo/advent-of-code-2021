@@ -11,7 +11,7 @@ def part_one(lines):
         elif command == 'up':
             depth -= steps
 
-    return position, depth
+    return position * depth
 
 
 def part_two(lines):
@@ -29,11 +29,11 @@ def part_two(lines):
         elif command == 'up':
             aim -= steps
 
-    return position, depth
+    return position * depth
 
 
 with open('input', 'r') as infile:
     lines = [l.strip('\n') for l in infile.readlines()]
 
-res = part_two(lines)
-print(res[0] * res[1])
+print(part_one(lines))
+print(part_two(lines))

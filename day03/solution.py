@@ -87,8 +87,7 @@ def part_two(lines):
 
 
 with open('input', 'r') as infile:
-    lines = infile.readlines()
-    lines = list(map(lambda l: l.strip('\n'), lines))
+    lines = [l.strip('\n') for l in infile.readlines()]
 
 res = part_two(lines)
 print(res)

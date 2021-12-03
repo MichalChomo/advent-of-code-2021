@@ -2,7 +2,7 @@ def part_one(lines):
     position = 0
     depth = 0
     for line in lines:
-        (command, steps) = line.strip('\n').split(' ')
+        (command, steps) = line.split(' ')
         steps = int(steps)
         if command == 'forward':
             position += steps
@@ -19,7 +19,7 @@ def part_two(lines):
     depth = 0
     aim = 0
     for line in lines:
-        (command, steps) = line.strip('\n').split(' ')
+        (command, steps) = line.split(' ')
         steps = int(steps)
         if command == 'forward':
             position += steps
@@ -33,7 +33,7 @@ def part_two(lines):
 
 
 with open('input', 'r') as infile:
-    lines = infile.readlines()
+    lines = [l.strip('\n') for l in infile.readlines()]
 
 res = part_two(lines)
 print(res[0] * res[1])

@@ -25,7 +25,7 @@ def part_two(numbers):
 
 
 with open('input', 'r') as infile:
-    numbers = list(map(lambda l: int(l.strip('\n')), infile.readlines()))
+    numbers = [int(l.strip('\n')) for l in infile.readlines()]
 
 print(part_one(numbers))
 print(part_two(numbers))
